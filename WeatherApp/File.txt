@@ -1,0 +1,20 @@
+# Конфигурационные файлы с API ключами
+Config.plist
+
+# Стандартные игнорируемые файлы для iOS
+*.DS_Store
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+Pods/
+*.log
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Временные файлы
+*.swp
+*.tmp
+*~
