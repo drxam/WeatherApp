@@ -9,9 +9,11 @@ import SwiftUI
 
 struct WeatherScreenView: View {
     @StateObject private var viewModel: WeatherScreenViewModel
+    @Binding var isLoading: Bool
     
-    init(weatherCity: WeatherCity) {
+    init(weatherCity: WeatherCity, isLoading: Binding<Bool>) {
         self._viewModel = StateObject(wrappedValue: WeatherScreenViewModel(weatherCity: weatherCity))
+        self._isLoading = isLoading
     }
     
     var body: some View {
@@ -35,6 +37,13 @@ struct WeatherScreenView: View {
                     ForecastTable5DaysView(models: viewModel.dailyForecast)
                 }
                 .padding(.bottom, 60)
+            }
+            
+            if isLoading {
+                Color.black.opacity(0.3).ignoresSafeArea()
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .scaleEffect(2)
             }
         }
         .onAppear {

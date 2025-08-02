@@ -20,8 +20,9 @@ struct MainScreenView: View {
         ZStack {
             TabView(selection: $viewModel.selectedPageIndex) {
                 ForEach(Array(viewModel.cities.enumerated()), id: \.element.cityName) { index, city in
-                    WeatherScreenView(weatherCity: city)
-                        .tag(index)
+                    WeatherScreenView(weatherCity: city,
+                                      isLoading: $viewModel.isLoading)
+                    .tag(index)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

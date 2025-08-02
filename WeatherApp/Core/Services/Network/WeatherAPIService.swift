@@ -138,11 +138,21 @@ class WeatherAPIService: ObservableObject {
 
 struct CitySearchResult: Codable {
     let localizedName: String
+    let country: Country
     let key: String
     
     enum CodingKeys: String, CodingKey {
         case localizedName = "LocalizedName"
         case key = "Key"
+        case country = "Country"
+    }
+    
+    struct Country: Codable {
+        let localizedName: String
+        
+        enum CodingKeys: String, CodingKey {
+            case localizedName = "LocalizedName"
+        }
     }
 }
 

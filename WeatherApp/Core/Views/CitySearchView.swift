@@ -40,7 +40,7 @@ struct CitySearchView: View {
                                 } label: {
                                     HStack {
                                         VStack(alignment: .leading, spacing: 4) {
-                                            Text(city.localizedName)
+                                            Text("\(city.localizedName), \(city.country.localizedName)")
                                                 .font(.system(size: 18, weight: .medium))
                                                 .foregroundColor(.white)
                                             
